@@ -1,0 +1,26 @@
+.grid-container {
+    /* Setting up a CSS Grid inside the <div> containing this class
+       This is all we have to do to set up a CSS Grid*/
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr; /* With a total of 3fr (fraction), 1fr is equal to 33% of the height. */
+    height: 100vh; /* The grid will have a view height of 100% */
+    /* This is how we want our elements to show up on the webpage */
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+}
+
+header {
+    /* Declaring this element as 'header' for our CSS Grid */
+    grid-area: header;
+}
+main {
+    /* Declaring this element as 'main' for our CSS Grid */
+    grid-area: main;
+}
+footer {
+    /* Declaring this element as "footer four our CSS Grid */
+    grid-area: footer;
+}
