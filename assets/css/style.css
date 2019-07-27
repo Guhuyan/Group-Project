@@ -1,0 +1,71 @@
+body {
+    background-color: #000;
+}
+
+.grid-container {
+    /* Setting up a CSS Grid inside the <div> containing this class
+       This is all we have to do to set up a CSS Grid*/
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-template-rows: 100px 1fr 50px; /* e.g. With a total of 3fr (fraction), 1fr is equal to 33% of the height. */
+    height: 100vh; /* The grid will have a view height of 100% */
+    /* This is how we want our elements to show up on the webpage 
+       Put '.' (period) for an empty grid section*/
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+}
+
+/* The header starts here */
+header {
+    /* Declaring this element as 'header' for our CSS Grid */
+    grid-area: header;
+    background-color: #171A21; /* Temp. color */
+    color: #B4B2B1;
+    padding-left: 1em;
+}
+
+/* Everything relating to main is inside here */
+main {
+    /* Declaring this element as 'main' for our CSS Grid */
+    grid-area: main;
+    /* Nesting a CSS Grid inside the main element*/
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "aside section"
+    "aside article";
+}
+section {
+    /* Declaring this element as 'aside' for our CSS Grid */
+    grid-area: section;
+    background-color: #1B2838; /* Temp. color */
+    color: #B4B2B1;
+    padding-left: 1em;
+}
+article {
+    /* Declaring this element as 'aside' for our CSS Grid */
+    grid-area: article;
+    background-color: #1B2838; /* Temp. color */
+    color: #B4B2B1;
+    padding-left: 1em;
+}
+aside {
+    /* Declaring this element as 'aside' for our CSS Grid */
+    grid-area: aside;
+    background: rgb(42,71,94);
+    background: linear-gradient(90deg, rgba(42,71,94,1) 0%, rgba(27,40,56,1) 100%);
+    color: #B4B2B1;
+    padding-left: 1em;
+}
+
+/* Everything in the footer here */
+footer {
+    /* Declaring this element as "footer four our CSS Grid */
+    grid-area: footer;
+    background-color: #0E161E; /* Temp. color */
+    color: #B4B2B1;
+    padding-left: 1em;
+}
