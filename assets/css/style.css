@@ -20,13 +20,24 @@ body {
 /* The header starts here */
 header {
     /* Declaring this element as 'header' for our CSS Grid */
+  
     grid-area: header;
     background-color: #171A21; /* Temp. color */
-    color: #B4B2B1;
+    color: gray;
     padding-left: 1em;
+    margin: 20px 0 0 500px;
+    text-shadow: 1px 1px 0 white, 
+    2px 2px 0 white;
+}
+#title{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50px;
 }
 #clock {
-    color: #B4B2B1;
+    background-color: #5c7e10;
+    color: white;
+    font-size: 10px;
+    text-align: right;
 }
 
 /* Everything relating to main is inside here */
@@ -42,26 +53,30 @@ main {
     "aside article";
 }
 section {
-    /* Declaring this element as 'aside' for our CSS Grid */
+    /* Declaring this element as 'section' for our CSS Grid */
     grid-area: section;
     background-color: #1B2838; /* Temp. color */
-    color: #B4B2B1;
+    color: #fff;
     padding-left: 1em;
+    font-family: 'Michroma', sans-serif;
 }
 article {
-    /* Declaring this element as 'aside' for our CSS Grid */
+    /* Declaring this element as 'article' for our CSS Grid */
     grid-area: article;
     background-color: #1B2838; /* Temp. color */
-    color: #B4B2B1;
+    color: #fff;
     padding-left: 1em;
+    font-family: 'Michroma', sans-serif;
+    text-align: right;
 }
 aside {
     /* Declaring this element as 'aside' for our CSS Grid */
     grid-area: aside;
     background: rgb(42,71,94);
     background: linear-gradient(90deg, rgba(42,71,94,1) 0%, rgba(27,40,56,1) 100%);
-    color: #B4B2B1;
+    color: #fff;
     padding-left: 1em;
+    font-family: 'Michroma', sans-serif;
 }
 
 /* Everything in the footer here */
@@ -69,6 +84,10 @@ footer {
     /* Declaring this element as "footer four our CSS Grid */
     grid-area: footer;
     background-color: #0E161E; /* Temp. color */
-    color: #B4B2B1;
     padding-left: 1em;
+}
+h3 {
+    font-family: 'Waiting for the Sunrise', cursive;
+    color: #67c1f5;
+    font-size: 20px;
 }

@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function () {
 
     // When the document is finished loading, start the clock.
     function startClock() {
