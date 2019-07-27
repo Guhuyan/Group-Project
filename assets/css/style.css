@@ -25,10 +25,13 @@ header {
     color: #B4B2B1;
     padding-left: 1em;
 }
+#clock {
+    color: #B4B2B1;
+}
 
 /* Everything relating to main is inside here */
 main {
-    /* Declaring this element as 'main' for our CSS Grid */
+    /* Declaring this element as 'main' for our primary CSS Grid */
     grid-area: main;
     /* Nesting a CSS Grid inside the main element*/
     display: grid;
