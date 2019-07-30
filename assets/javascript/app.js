@@ -80,18 +80,13 @@ $(document).ready(function () {
         });
         
 
-
-        /*
-        let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}&type=video&videoDefinition=high&key=[AIzaSyBwY4GNn790HPtRaFRt6CJFkWCDNI7WyGk]`;
+        let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}&type=video&videoDefinition=high&key=AIzaSyBwY4GNn790HPtRaFRt6CJFkWCDNI7WyGk`;
         $.ajax({
             url: videoURL,
             method: 'GET',
-            headers:{
-                'Authorization': 'Bearer [YOUR_ACCESS_TOKEN]',
-                'Accept': 'application/json'
-            }
         }).then(response =>{
             console.log(response);
+            //https://www.youtube.com/watch?v= + 'videoID';
         });
         */
 
