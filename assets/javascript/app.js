@@ -18,7 +18,7 @@ $(document).ready(function () {
 
 
     // On-click event handler for the submit button
-    $("#submit").on("click", function() {
+    $("#submit").on("click", function () {
         event.preventDefault();
         $("#query-output").empty();
         $("#current-article").empty();
@@ -41,17 +41,18 @@ $(document).ready(function () {
                         <div class="query-item-header">${sQuery[i].name}</h5>
                     </div>
                     `);
-                 };
+                };
             })
-            .catch(err => {
-                console.error(err);
-            });
+                .catch(err => {
+                    console.error(err);
+                });
         };
-        
+
     });
 
     // On-click event handler for query result(s)
-    $(document).on("click", ".query-item", function() {
+    $(document).on("click", ".query-item", function () {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
         event.preventDefault();
         $("#current-article").empty();
         let queryName = $(this).attr("query-name");
@@ -75,21 +76,24 @@ $(document).ready(function () {
             </div>
             `);
         })
-        .catch(err => {
-            console.error(err);
-        });
-        
+            .catch(err => {
+                console.error(err);
+            });
+
 
         let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}&type=video&videoDefinition=high&key=AIzaSyBwY4GNn790HPtRaFRt6CJFkWCDNI7WyGk`;
         $.ajax({
             url: videoURL,
             method: 'GET',
-        }).then(response =>{
+        }).then(response => {
             console.log(response);
             //https://www.youtube.com/watch?v= + 'videoID';
         });
-        */
+
+
 
     });
+
+
 
 });
