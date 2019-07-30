@@ -18,7 +18,8 @@ $(document).ready(function () {
     $("#submit").on("click", function() {
         event.preventDefault();
         let userInput = $("#user-input").val().trim();
-        let queryURL = `https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games/?search=${userInput}&fields=id,name`;
+        let queryURL = `https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games/?search=${userInput}&fields=artworks.*,cover.*,id,name,url,screenshots.*,summary,storyline,total_rating,total_rating_count,videos,websites`;
+
         $.ajax({
             url: queryURL,
             method: 'POST',
@@ -27,10 +28,12 @@ $(document).ready(function () {
             },
         }).then(response => {
                 console.log(response);
+               
             })
             .catch(err => {
                 console.error(err);
             });
+        
     });
 
 });
