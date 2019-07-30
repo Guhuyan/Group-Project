@@ -16,6 +16,7 @@ $(document).ready(function () {
     }
     startClock();
 
+
     // On-click event handler for the submit button
     $("#submit").on("click", function() {
         event.preventDefault();
@@ -76,7 +77,20 @@ $(document).ready(function () {
         .catch(err => {
             console.error(err);
         });
+        
+        let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}&type=video&videoDefinition=high&key=[AIzaSyBwY4GNn790HPtRaFRt6CJFkWCDNI7WyGk]`;
+        $.ajax({
+            url: videoURL,
+            method: 'GET',
+            headers:{
+                'Authorization': 'Bearer [YOUR_ACCESS_TOKEN]',
+                'Accept': 'application/json'
+            }
+        }).then(response =>{
+            console.log(response);
+        });
         queryName = "";
+
     });
 
 });
