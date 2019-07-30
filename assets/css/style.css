@@ -1,16 +1,13 @@
 body {
     background-color: #171A21;
 }
-h2 {
-    padding: 1em 0 1em 0;
-}
 
 .grid-container {
     /* Setting up a CSS Grid inside the <div> containing this class
        This is all we have to do to set up a CSS Grid*/
     display: grid;
     grid-template-columns: 1fr; 
-    grid-template-rows: 1em 100px 1fr 50px; /* e.g. With a total of 3fr (fraction), 1fr is equal to 33% of the height. */
+    grid-template-rows: 1em 80px 1fr 50px; /* e.g. With a total of 3fr (fraction), 1fr is equal to 33% of the height. */
     height: 100vh; /* The grid will have a view height of 100% */
     /* This is how we want our elements to show up on the webpage 
        Put '.' (period) for an empty grid section*/
@@ -21,15 +18,18 @@ h2 {
     "footer";
 }
 
+.sub-header {
+    font-size: 20px;
+}
+
 /* The header starts here */
 header {
     /* Declaring this element as 'header' for our CSS Grid */
-  
     grid-area: header;
+    justify-self: center;
+    align-self: center;
     background-color: #171A21; /* Temp. color */
     color: gray;
-    padding-left: 1em;
-    margin: 20px 0 0 500px;
     text-shadow: 1px 1px 0 white, 
     2px 2px 0 white;
 }
@@ -42,7 +42,7 @@ header {
 }
 #title{
     font-family: 'Press Start 2P', cursive;
-    font-size: 50px;
+    font-size: 24px;
 }
 
 /* Everything relating to main is inside here */
@@ -51,11 +51,12 @@ main {
     grid-area: main;
     /* Nesting a CSS Grid inside the main element*/
     display: grid;
-    grid-template-columns: 1fr 2.5fr 2.5fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr;
     grid-template-areas: 
-    "aside section article"
-    "aside section article";
+    "aside"
+    "section"
+    "article";
 }
 
 section {
@@ -67,12 +68,18 @@ section {
     font-family: 'Michroma', sans-serif;
 }
 .query-item {
-    display: inline;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1em;
     color: #0069D9;
     cursor: pointer;
 }
 .query-item:active {
     color: rgb(66, 137, 212);
+}
+.query-item-header {
+    margin-left: 1em;
 }
 
 article {
@@ -86,6 +93,15 @@ article {
 }
 .current-article {
     padding: 2em;
+}
+#article-name {
+    padding-top: 1em;
+    font-weight: bold;
+    color: #0069D9;
+}
+#article-rating {
+    padding-top: 4px;;
+    padding-bottom: 0.5em;
 }
 
 aside {
@@ -108,4 +124,47 @@ footer {
     font-family: 'Waiting for the Sunrise', cursive;
     color: #67c1f5;
     font-size: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+    .sub-header {
+        font-size: 28px;
+    }
+    #title{
+        font-family: 'Press Start 2P', cursive;
+        font-size: 36px;
+    }
+    main {
+        /* Declaring this element as 'main' for our primary CSS Grid */
+        grid-area: main;
+        /* Nesting a CSS Grid inside the main element*/
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.5fr 1fr 1fr;
+        grid-template-areas: 
+        "aside aside"
+        "section article"
+        "section article";
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .sub-header {
+        font-size: 32px;
+    }
+    #title{
+        font-family: 'Press Start 2P', cursive;
+        font-size: 48px;
+    }
+    main {
+        /* Declaring this element as 'main' for our primary CSS Grid */
+        grid-area: main;
+        /* Nesting a CSS Grid inside the main element*/
+        display: grid;
+        grid-template-columns: 1fr 2fr 3fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        "aside section article"
+        "aside section article";
+    }
 }

@@ -23,7 +23,7 @@ $(document).ready(function () {
         $("#query-output").empty();
         $("#current-article").empty();
         let userInput = $("#user-input").val().trim();
-        let queryURL = `https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games/?search=${userInput}&fields=id,name`;
+        let queryURL = `https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games/?search=${userInput}&fields=cover.*,id,name`;
         if (userInput != "") {
             $.ajax({
                 url: queryURL,
@@ -37,7 +37,8 @@ $(document).ready(function () {
                 for (i = 0; i < sQuery.length; i++) {
                     $("#query-output").append(`
                     <div class="query-item" query-name="${sQuery[i].name}">
-                        <h5>${sQuery[i].name}</h5>
+                        <img src="https:${sQuery[i].cover.url}" id="query-item-img" alt="Thumbnail-Image">
+                        <div class="query-item-header">${sQuery[i].name}</h5>
                     </div>
                     `);
                  };
@@ -68,8 +69,8 @@ $(document).ready(function () {
             let n = response[i].total_rating.toFixed(2);
             $("#current-article").append(`
             <div class="article"">
-                <h3>${response[i].name}</h5>
-                <h4>Rating: ${n} (${response[i].total_rating_count})</h4>
+                <h3 id="article-name">${response[i].name}</h5>
+                <h4 id="article-rating">Rating: ${n} (${response[i].total_rating_count})</h4>
                 <p>${response[i].summary}</p>
             </div>
             `);
@@ -78,6 +79,9 @@ $(document).ready(function () {
             console.error(err);
         });
         
+
+
+        /*
         let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}&type=video&videoDefinition=high&key=[AIzaSyBwY4GNn790HPtRaFRt6CJFkWCDNI7WyGk]`;
         $.ajax({
             url: videoURL,
@@ -89,7 +93,7 @@ $(document).ready(function () {
         }).then(response =>{
             console.log(response);
         });
-        queryName = "";
+        */
 
     });
 
