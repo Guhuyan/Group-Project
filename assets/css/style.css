@@ -1,5 +1,8 @@
 body {
-    background-color: #000;
+    background-color: #171A21;
+}
+h2 {
+    padding: 1em 0 1em 0;
 }
 
 .grid-container {
@@ -7,11 +10,12 @@ body {
        This is all we have to do to set up a CSS Grid*/
     display: grid;
     grid-template-columns: 1fr; 
-    grid-template-rows: 100px 1fr 50px; /* e.g. With a total of 3fr (fraction), 1fr is equal to 33% of the height. */
+    grid-template-rows: 1em 100px 1fr 50px; /* e.g. With a total of 3fr (fraction), 1fr is equal to 33% of the height. */
     height: 100vh; /* The grid will have a view height of 100% */
     /* This is how we want our elements to show up on the webpage 
        Put '.' (period) for an empty grid section*/
     grid-template-areas: 
+    "clock"
     "header"
     "main"
     "footer";
@@ -29,15 +33,16 @@ header {
     text-shadow: 1px 1px 0 white, 
     2px 2px 0 white;
 }
-#title{
-    font-family: 'Press Start 2P', cursive;
-    font-size: 50px;
-}
 #clock {
+    grid-area: clock;
     background-color: #5c7e10;
     color: white;
     font-size: 10px;
     text-align: right;
+}
+#title{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50px;
 }
 
 /* Everything relating to main is inside here */
@@ -46,12 +51,13 @@ main {
     grid-area: main;
     /* Nesting a CSS Grid inside the main element*/
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 2.5fr 2.5fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 
-    "aside section"
-    "aside article";
+    "aside section article"
+    "aside section article";
 }
+
 section {
     /* Declaring this element as 'section' for our CSS Grid */
     grid-area: section;
@@ -60,6 +66,15 @@ section {
     padding-left: 1em;
     font-family: 'Michroma', sans-serif;
 }
+.query-item {
+    display: inline;
+    color: #0069D9;
+    cursor: pointer;
+}
+.query-item:active {
+    color: rgb(66, 137, 212);
+}
+
 article {
     /* Declaring this element as 'article' for our CSS Grid */
     grid-area: article;
@@ -67,8 +82,12 @@ article {
     color: #fff;
     padding-left: 1em;
     font-family: 'Michroma', sans-serif;
-    text-align: right;
+    text-align: left;
 }
+.current-article {
+    padding: 2em;
+}
+
 aside {
     /* Declaring this element as 'aside' for our CSS Grid */
     grid-area: aside;
@@ -84,9 +103,8 @@ footer {
     /* Declaring this element as "footer four our CSS Grid */
     grid-area: footer;
     background-color: #0E161E; /* Temp. color */
+    padding-top: 10px;
     padding-left: 1em;
-}
-h3 {
     font-family: 'Waiting for the Sunrise', cursive;
     color: #67c1f5;
     font-size: 20px;
