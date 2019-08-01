@@ -57,7 +57,6 @@ main {
     "aside"
     "section"
     "article";
-    width: 100%;
 }
 
 section {
@@ -143,7 +142,7 @@ footer {
         /* Nesting a CSS Grid inside the main element*/
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 0.05fr 1fr 1fr;
+        grid-template-rows: 0.05fr 0.5fr 1fr;
         grid-template-areas: 
         "aside"
         "section"
