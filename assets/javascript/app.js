@@ -1,4 +1,5 @@
 $(document).ready(function () {
+   
     // Initial variables
     let sQuery = "";
 
