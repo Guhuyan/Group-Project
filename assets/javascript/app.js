@@ -52,7 +52,6 @@ $(document).ready(function () {
 
     // On-click event handler for query result(s)
     $(document).on("click", ".query-item", function () {
-        $("html, body").animate({ scrollTop: 0 }, "slow");
         event.preventDefault();
         // First AJAX call to retrieve data from IGDB
         $("#current-article").empty();
@@ -78,12 +77,7 @@ $(document).ready(function () {
             `);
         })
 
-        .catch(err => {
-            console.error(err);
-        });
-        // Second AJAX call to retrieve data from YouTube
-        let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}%20trailer&type=video&videoDefinition=high&key=AIzaSyBwY4GNn790HPtRaFRt6CJFkWCDNI7WyGk`;
-
+        let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=${queryName}|official|trailer&type=video&videoDefinition=high&key=AIzaSyBwY4GNn790HPtRaFRt6CJFkWCDNI7WyGk`;
         $.ajax({
             url: videoURL,
             method: 'GET',
