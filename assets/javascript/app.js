@@ -19,6 +19,7 @@ $(document).ready(function () {
 
     // On-click event handler for the submit button
     $("#submit").on("click", function () {
+        $("#youtube-carousel").empty();
         event.preventDefault();
         $("#query-output").empty();
         $("#current-article").empty();
