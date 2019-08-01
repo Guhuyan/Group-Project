@@ -103,6 +103,9 @@ article {
     padding-top: 4px;;
     padding-bottom: 0.5em;
 }
+.article-video-thumbnails {
+    margin: 1em;
+}
 
 aside {
     /* Declaring this element as 'aside' for our CSS Grid */

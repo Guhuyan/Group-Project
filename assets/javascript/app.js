@@ -54,6 +54,7 @@ $(document).ready(function () {
     $(document).on("click", ".query-item", function () {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         event.preventDefault();
+        // First AJAX call to retrieve data from IGDB
         $("#current-article").empty();
         let queryName = $(this).attr("query-name");
         console.log(queryName);
@@ -76,21 +77,29 @@ $(document).ready(function () {
             </div>
             `);
         })
-            .catch(err => {
-                console.error(err);
-            });
 
+        .catch(err => {
+            console.error(err);
+        });
+        // Second AJAX call to retrieve data from YouTube
+        let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}%20trailer&type=video&videoDefinition=high&key=AIzaSyBwY4GNn790HPtRaFRt6CJFkWCDNI7WyGk`;
 
-        let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}&type=video&videoDefinition=high&key=AIzaSyBwY4GNn790HPtRaFRt6CJFkWCDNI7WyGk`;
         $.ajax({
             url: videoURL,
             method: 'GET',
         }).then(response => {
+
+            ytQuery = response.items;
+
             console.log(response);
-            //https://www.youtube.com/watch?v= + 'videoID';
+            for (i = 0; i < ytQuery.length; i++) {
+                $("#youtube-carousel").append(`
+                <div class="article-video-thumbnails">
+                <img src="${ytQuery[i].snippet.thumbnails.medium.url}">
+                </div>
+                `);
+            };
         });
-
-
 
     });
 
