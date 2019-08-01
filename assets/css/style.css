@@ -134,7 +134,7 @@ footer {
     }
     #title{
         font-family: 'Press Start 2P', cursive;
-        font-size: 20px;
+        font-size: 40px;
     }
     main {
         /* Declaring this element as 'main' for our primary CSS Grid */
@@ -164,10 +164,9 @@ footer {
         /* Nesting a CSS Grid inside the main element*/
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 0.05fr 1fr 1fr;
+        grid-template-rows: 0.05fr 1fr;
         grid-template-areas: 
         "aside aside"
-        "section article"
         "section article";
     }
 }
@@ -186,9 +185,8 @@ footer {
         /* Nesting a CSS Grid inside the main element*/
         display: grid;
         grid-template-columns: 1fr 2fr 3fr;
-        grid-template-rows: 0.05fr 1fr 1fr;
+        grid-template-rows: 0.05fr;
         grid-template-areas: 
-        "aside section article"
         "aside section article";
     }
 }
