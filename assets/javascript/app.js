@@ -77,7 +77,14 @@ $(document).ready(function () {
             `);
         })
 
-        let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=${queryName}|official|trailer&type=video&videoDefinition=high&key=AIzaSyBwY4GNn790HPtRaFRt6CJFkWCDNI7WyGk`;
+
+        .catch(err => {
+            console.error(err);
+        });
+        // Second AJAX call to retrieve data from YouTube
+        $("#youtube-carousel").empty();
+        let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}%20trailer&type=video&videoDefinition=high&key=AIzaSyBwY4GNn790HPtRaFRt6CJFkWCDNI7WyGk`;
+
         $.ajax({
             url: videoURL,
             method: 'GET',
