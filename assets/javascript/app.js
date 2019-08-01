@@ -52,7 +52,6 @@ $(document).ready(function () {
 
     // On-click event handler for query result(s)
     $(document).on("click", ".query-item", function () {
-        $("html, body").animate({ scrollTop: 0 }, "slow");
         event.preventDefault();
         // First AJAX call to retrieve data from IGDB
         $("#current-article").empty();
@@ -77,6 +76,7 @@ $(document).ready(function () {
             </div>
             `);
         })
+
 
         .catch(err => {
             console.error(err);
