@@ -18,7 +18,7 @@ $(document).ready(function () {
 
 
     // On-click event handler for the submit button
-    $("#submit").on("click", function() {
+    $("#submit").on("click", function () {
         event.preventDefault();
         $("#query-output").empty();
         $("#current-article").empty();
@@ -41,17 +41,18 @@ $(document).ready(function () {
                         <div class="query-item-header">${sQuery[i].name}</h5>
                     </div>
                     `);
-                 };
+                };
             })
-            .catch(err => {
-                console.error(err);
-            });
+                .catch(err => {
+                    console.error(err);
+                });
         };
-        
+
     });
 
     // On-click event handler for query result(s)
-    $(document).on("click", ".query-item", function() {
+    $(document).on("click", ".query-item", function () {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
         event.preventDefault();
         // First AJAX call to retrieve data from IGDB
         $("#current-article").empty();
@@ -76,16 +77,20 @@ $(document).ready(function () {
             </div>
             `);
         })
+
         .catch(err => {
             console.error(err);
         });
         // Second AJAX call to retrieve data from YouTube
         let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}%20trailer&type=video&videoDefinition=high&key=AIzaSyBwY4GNn790HPtRaFRt6CJFkWCDNI7WyGk`;
+
         $.ajax({
             url: videoURL,
             method: 'GET',
         }).then(response => {
+
             ytQuery = response.items;
+
             console.log(response);
             for (i = 0; i < ytQuery.length; i++) {
                 $("#youtube-carousel").append(`
@@ -95,6 +100,9 @@ $(document).ready(function () {
                 `);
             };
         });
+
     });
+
+
 
 });
