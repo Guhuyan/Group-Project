@@ -22,6 +22,7 @@ body {
     font-size: 20px;
 }
 
+
 /* The header starts here */
 header {
     /* Declaring this element as 'header' for our CSS Grid */
@@ -154,6 +155,7 @@ footer {
     .sub-header {
         font-size: 28px;
     }
+
     #title{
         font-family: 'Press Start 2P', cursive;
         font-size: 36px;
@@ -176,6 +178,7 @@ footer {
     .sub-header {
         font-size: 32px;
     }
+
     #title{
         font-family: 'Press Start 2P', cursive;
         font-size: 48px;
