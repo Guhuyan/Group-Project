@@ -16,6 +16,7 @@ $(document).ready(function () {
             <p>${igdbResponse[i].summary}</p>
         </div>
         `);
+
         $("#youtube-carousel").html(`
                 <div class="container">
                         <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
@@ -134,7 +135,7 @@ $(document).ready(function () {
             console.log(igdbResponse);
 
             // Second AJAX call to retrieve data from YouTube once an output from the first AJAX call has been clicked on
-            let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}%20trailer&type=video&videoDefinition=high&key=AIzaSyC29aRZV3MpHpq53RmiGwX1Fc8By1VIqtU`;
+            let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}%20trailer&type=video&videoDefinition=high&key=AIzaSyBwY4GNn790HPtRaFRt6CJFkWCDNI7WyGk`;
             console.log(videoURL);
             $.ajax({
                 url: videoURL,
@@ -142,7 +143,8 @@ $(document).ready(function () {
             }).then(response => {
                 youtubeResponse = response.items;
                 console.log(youtubeResponse);
-            }).then(renderArticle(igdbResponse, youtubeResponse))
+                renderArticle(igdbResponse, youtubeResponse)
+            })
         })
             .catch(err => {
                 console.error(err);
