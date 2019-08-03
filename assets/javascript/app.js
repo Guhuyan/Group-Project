@@ -139,14 +139,10 @@ $(document).ready(function () {
                 </div>
             `);
         });
-        if ($(window).width() >= 767) {
-            $("html, body").animate({ scrollTop: 0 }, "slow");
-        }
-        else {
-            $('html,body').animate({
-                scrollTop: $("#current-article").offset().top
-            }, 'slow');
-        }
+        // Scroll function based on screen size (eg. scroll down if on mobile)
+        $("html, body").animate({
+            scrollTop: $("#current-article").offset().top
+        }, 'slow');
     });
 });
 
