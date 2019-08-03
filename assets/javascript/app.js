@@ -76,69 +76,69 @@ $(document).ready(function () {
                 <p>${response[i].summary}</p>
             </div>
             `);
+            // Second AJAX call to retrieve data from YouTube once an output from the first AJAX call has been clicked on
+            let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}%20trailer&type=video&videoDefinition=high&key=AIzaSyC29aRZV3MpHpq53RmiGwX1Fc8By1VIqtU`;
+            console.log(videoURL);
+            $.ajax({
+                url: videoURL,
+                method: 'GET',
+            }).then(response => {
+                ytQuery = response.items;
+                $("#youtube-carousel").html(`
+                <div class="container">
+                        <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/${ytQuery[0].id.videoId}" frameborder="0" 
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/${ytQuery[1].id.videoId}" frameborder="0" 
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/${ytQuery[2].id.videoId}" frameborder="0" 
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/${ytQuery[3].id.videoId}" frameborder="0" 
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/${ytQuery[4].id.videoId}" frameborder="0" 
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="carouselControls">
+                            <div>
+                                <a href="#carousel" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a href="#carousel" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `);
+            });
         })
             .catch(err => {
                 console.error(err);
             });
-        // Second AJAX call to retrieve data from YouTube once an output from the first AJAX call has been clicked on
-        let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}%20trailer&type=video&videoDefinition=high&key=AIzaSyC29aRZV3MpHpq53RmiGwX1Fc8By1VIqtU`;
-        console.log(videoURL);
-        $.ajax({
-            url: videoURL,
-            method: 'GET',
-        }).then(response => {
-            ytQuery = response.items;
-            $("#youtube-carousel").html(`
-            <div class="container">
-                    <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/${ytQuery[0].id.videoId}" frameborder="0" 
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/${ytQuery[1].id.videoId}" frameborder="0" 
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/${ytQuery[2].id.videoId}" frameborder="0" 
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/${ytQuery[3].id.videoId}" frameborder="0" 
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/${ytQuery[4].id.videoId}" frameborder="0" 
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="carouselControls">
-                        <div>
-                            <a href="#carousel" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a href="#carousel" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            `);
-        });
         // Scroll function based on screen size (eg. scroll down if on mobile)
         $("html, body").animate({
             scrollTop: $(".article").offset().top
