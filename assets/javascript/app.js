@@ -1,5 +1,5 @@
 $(document).ready(function () {
-   
+
     // Initial variables
     let sQuery = "";
 
@@ -54,37 +54,49 @@ $(document).ready(function () {
 
     // On-click event handler for query result(s)
     $(document).on("click", ".query-item", function () {
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-        event.preventDefault();
-        // First AJAX call to retrieve data from IGDB
-        $("#current-article").empty();
-        let queryName = $(this).attr("query-name");
-        console.log(queryName);
-        let queryURL = `https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games/?search=${queryName}&fields=artworks.*,cover.*,id,name,url,screenshots.*,summary,storyline,total_rating,total_rating_count,websites.*`;
-        $.ajax({
-            url: queryURL,
-            method: 'POST',
-            headers: {
-                'user-key': '73e145ac8c0ebbcea1ebea4527dba99e',
-            },
-        }).then(response => {
-            console.log(response);
-            let i = 0;
-            let n = response[i].total_rating.toFixed(2);
-            $("#current-article").append(`
+            if ($(window).width() >= 767) {
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+            }
+        else {
+            $('html,body').animate({
+                scrollTop: $("#current-article").offset().top
+            }, 'slow');
+                    
+        }
+                    event.preventDefault();
+                    // First AJAX call to retrieve data from IGDB
+                    $("#current-article").empty();
+                    let queryName = $(this).attr("query-name");
+                    console.log(queryName);
+                    let queryURL = `https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games/?search=${queryName}&fields=artworks.*,cover.*,id,name,url,screenshots.*,summary,storyline,total_rating,total_rating_count,websites.*`;
+                    $.ajax({
+                        url: queryURL,
+                        method: 'POST',
+                        headers: {
+                            'user-key': '73e145ac8c0ebbcea1ebea4527dba99e',
+                        },
+                    }).then(response => {
+                        console.log(response);
+                        let i = 0;
+                        let n = response[i].total_rating.toFixed(2);
+                        $("#current-article").append(`
             <div class="article"">
                 <h3 id="article-name">${response[i].name}</h5>
                 <h4 id="article-rating">Rating: ${n} (${response[i].total_rating_count})</h4>
                 <p>${response[i].summary}</p>
             </div>
             `);
-        })
+                    })
 
 
-        .catch(err => {
-            console.error(err);
-        });
-        
+
+                        .catch(err => {
+                            console.error(err);
+                        });
+                }
+            );
+
+
         // Second AJAX call to retrieve data from YouTube
         let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}%20trailer&type=video&videoDefinition=high&key=AIzaSyC29aRZV3MpHpq53RmiGwX1Fc8By1VIqtU`;
         console.log(videoURL);
@@ -159,4 +171,3 @@ $(document).ready(function () {
 
 
 
-});
