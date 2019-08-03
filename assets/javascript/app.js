@@ -141,7 +141,7 @@ $(document).ready(function () {
         });
         // Scroll function based on screen size (eg. scroll down if on mobile)
         $("html, body").animate({
-            scrollTop: $("#current-article").offset().top
+            scrollTop: $(".article").offset().top
         }, 'slow');
     });
 });
