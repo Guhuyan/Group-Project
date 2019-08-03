@@ -18,10 +18,6 @@ body {
     "footer";
 }
 
-.sub-header {
-    font-size: 20px;
-}
-
 /* The header starts here */
 header {
     /* Declaring this element as 'header' for our CSS Grid */
@@ -44,6 +40,9 @@ header {
     font-family: 'Press Start 2P', cursive;
     font-size: 24px;
 }
+.sub-header {
+    font-size: 16px;
+}
 
 /* Everything relating to main is inside here */
 main {
@@ -52,7 +51,7 @@ main {
     /* Nesting a CSS Grid inside the main element*/
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1fr 1fr;
+    grid-template-rows: 0.15fr 1fr 1fr;
     grid-template-areas: 
     "aside"
     "section"
@@ -88,6 +87,7 @@ article {
     background-color: #1B2838; /* Temp. color */
     color: #fff;
     padding-left: 1em;
+    padding-right: 1em;
     font-family: 'Michroma', sans-serif;
     text-align: left;
 }
@@ -105,6 +105,17 @@ article {
 }
 .article-video-thumbnails {
     margin: 1em;
+}
+#carouselControls {
+    display: flex;
+    justify-content: center;
+}
+#carouselControls div {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 33%;
 }
 
 aside {
@@ -128,19 +139,21 @@ footer {
     color: #67c1f5;
     font-size: 20px;
 }
+
+/* Media Queries */
 @media only screen and (min-width: 320px) {
-    .sub-header {
-        font-size: 28px;
-    }
     #title{
+<<<<<<< HEAD
         font-family: 'Press Start 2P', cursive;
         font-size: 25px;
+=======
+        font-size: 26px;
+    }
+    .sub-header {
+        font-size: 18px;
+>>>>>>> origin
     }
     main {
-        /* Declaring this element as 'main' for our primary CSS Grid */
-        grid-area: main;
-        /* Nesting a CSS Grid inside the main element*/
-        display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 0.05fr 0.5fr 1fr;
         grid-template-areas: 
@@ -150,21 +163,25 @@ footer {
     }
 }
 
-@media only screen and (min-width: 768px) {
-    .sub-header {
-        font-size: 28px;
-    }
+@media only screen and (min-width: 480px) {
     #title{
-        font-family: 'Press Start 2P', cursive;
         font-size: 36px;
     }
+    .sub-header {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #title{
+        font-size: 42px;
+    }
+    .sub-header {
+        font-size: 26px;
+    }
     main {
-        /* Declaring this element as 'main' for our primary CSS Grid */
-        grid-area: main;
-        /* Nesting a CSS Grid inside the main element*/
-        display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 0.05fr 1fr;
+        grid-template-rows: 90px 1fr;
         grid-template-areas: 
         "aside aside"
         "section article";
@@ -172,20 +189,15 @@ footer {
 }
 
 @media only screen and (min-width: 1200px) {
-    .sub-header {
-        font-size: 32px;
-    }
     #title{
-        font-family: 'Press Start 2P', cursive;
         font-size: 48px;
     }
+    .sub-header {
+        font-size: 28px;
+    }
     main {
-        /* Declaring this element as 'main' for our primary CSS Grid */
-        grid-area: main;
-        /* Nesting a CSS Grid inside the main element*/
-        display: grid;
         grid-template-columns: 1fr 2fr 3fr;
-        grid-template-rows: 0.05fr;
+        grid-template-rows: 1fr;
         grid-template-areas: 
         "aside section article";
     }
