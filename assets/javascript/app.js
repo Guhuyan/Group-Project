@@ -89,17 +89,15 @@ $(document).ready(function () {
             .catch(err => {
                 console.error(err);
             });
-    });
-
-    // Second AJAX call to retrieve data from YouTube once an output from the first AJAX call has been clicked on
-    let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}%20trailer&type=video&videoDefinition=high&key=AIzaSyC29aRZV3MpHpq53RmiGwX1Fc8By1VIqtU`;
-    console.log(videoURL);
-    $.ajax({
-        url: videoURL,
-        method: 'GET',
-    }).then(response => {
-        ytQuery = response.items;
-        $("#youtube-carousel").html(`
+        // Second AJAX call to retrieve data from YouTube once an output from the first AJAX call has been clicked on
+        let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}%20trailer&type=video&videoDefinition=high&key=AIzaSyC29aRZV3MpHpq53RmiGwX1Fc8By1VIqtU`;
+        console.log(videoURL);
+        $.ajax({
+            url: videoURL,
+            method: 'GET',
+        }).then(response => {
+            ytQuery = response.items;
+            $("#youtube-carousel").html(`
             <div class="container">
                     <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
                         <div class="carousel-inner">
@@ -149,16 +147,7 @@ $(document).ready(function () {
                     </div>
                 </div>
             `);
-        /*
-        for (i = 0; i < ytQuery.length; i++) {
-            $("#youtube-carousel").append(`
-            <div class="article-video-thumbnails">
-            <img src="${ytQuery[i].snippet.thumbnails.medium.url}">
-            </div>
-            `);
-            console.log(ytQuery[0].id.videoId);
-        };
-        */
+        });
     });
 
 });
