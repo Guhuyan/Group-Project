@@ -93,7 +93,7 @@ $(document).ready(function () {
             method: 'GET',
         }).then(response => {
             ytQuery = response.items;
-            $("#youtube-carousel").append(`
+            $("#youtube-carousel").html(`
             <div class="container">
                     <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
                         <div class="carousel-inner">
