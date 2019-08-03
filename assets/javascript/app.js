@@ -87,16 +87,11 @@ $(document).ready(function () {
             </div>
             `);
         })
-
-
-
             .catch(err => {
                 console.error(err);
             });
     }
     );
-
-
     // Second AJAX call to retrieve data from YouTube
     let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}%20trailer&type=video&videoDefinition=high&key=AIzaSyC29aRZV3MpHpq53RmiGwX1Fc8By1VIqtU`;
     console.log(videoURL);
