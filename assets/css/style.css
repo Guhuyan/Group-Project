@@ -52,7 +52,7 @@ main {
     /* Nesting a CSS Grid inside the main element*/
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1fr 1fr;
+    grid-template-rows: 0.15fr 1fr 1fr;
     grid-template-areas: 
     "aside"
     "section"
@@ -105,6 +105,17 @@ article {
 }
 .article-video-thumbnails {
     margin: 1em;
+}
+#carouselControls {
+    display: flex;
+    justify-content: center;
+}
+#carouselControls div {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 33%;
 }
 
 aside {
