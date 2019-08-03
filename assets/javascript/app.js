@@ -142,8 +142,7 @@ $(document).ready(function () {
             }).then(response => {
                 youtubeResponse = response.items;
                 console.log(youtubeResponse);
-            });
-            renderArticle(igdbResponse, youtubeResponse);
+            }).then(renderArticle(igdbResponse, youtubeResponse))
         })
             .catch(err => {
                 console.error(err);
