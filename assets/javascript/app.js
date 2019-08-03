@@ -54,15 +54,6 @@ $(document).ready(function () {
     // On-click event handler for query result(s)
     $(document).on("click", ".query-item", function () {
         event.preventDefault();
-        if ($(window).width() >= 767) {
-            $("html, body").animate({ scrollTop: 0 }, "slow");
-        }
-        else {
-            $('html,body').animate({
-                scrollTop: $("#current-article").offset().top
-            }, 'slow');
-
-        }
         // First AJAX call to retrieve data from IGDB
         $("#current-article").empty();
         let queryName = $(this).attr("query-name");
@@ -148,8 +139,15 @@ $(document).ready(function () {
                 </div>
             `);
         });
+        if ($(window).width() >= 767) {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+        }
+        else {
+            $('html,body').animate({
+                scrollTop: $("#current-article").offset().top
+            }, 'slow');
+        }
     });
-
 });
 
 
