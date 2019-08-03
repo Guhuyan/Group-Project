@@ -17,7 +17,6 @@ $(document).ready(function () {
     }
     startClock();
 
-
     // On-click event handler for the submit button
     $("#submit").on("click", function () {
         $("#youtube-carousel").empty();
@@ -82,7 +81,7 @@ $(document).ready(function () {
             $("#current-article").append(`
             <div class="article"">
                 <h3 id="article-name">${response[i].name}</h5>
-                <h4 id="article-rating">Rating: ${n} (${response[i].total_rating_count})</h4>
+                <h4 id="article-rating">Rating: ${n} /100 (${response[i].total_rating_count})</h4>
                 <p>${response[i].summary}</p>
             </div>
             `);
@@ -90,8 +89,7 @@ $(document).ready(function () {
             .catch(err => {
                 console.error(err);
             });
-    }
-    );
+    });
 
     // Second AJAX call to retrieve data from YouTube once an output from the first AJAX call has been clicked on
     let videoURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=${queryName}%20trailer&type=video&videoDefinition=high&key=AIzaSyC29aRZV3MpHpq53RmiGwX1Fc8By1VIqtU`;
