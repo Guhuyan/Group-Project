@@ -1,4 +1,5 @@
 $(document).ready(function () {
+   
     // Initial variables
     let sQuery = "";
 
@@ -19,6 +20,7 @@ $(document).ready(function () {
 
     // On-click event handler for the submit button
     $("#submit").on("click", function () {
+        $("#youtube-carousel").empty();
         event.preventDefault();
         $("#query-output").empty();
         $("#current-article").empty();
@@ -78,6 +80,7 @@ $(document).ready(function () {
             `);
         })
 
+
         .catch(err => {
             console.error(err);
         });
@@ -89,7 +92,6 @@ $(document).ready(function () {
             url: videoURL,
             method: 'GET',
         }).then(response => {
-
             ytQuery = response.items;
             $("#youtube-carousel").append(`
             <div class="container">
