@@ -143,11 +143,23 @@ footer {
 /* Media Queries */
 @media only screen and (min-width: 320px) {
     #title{
+<<<<<<< HEAD
+<<<<<<< HEAD
+        font-family: 'Press Start 2P', cursive;
+        font-size: 25px;
+=======
+        font-size: 26px;
+    }
+    .sub-header {
+        font-size: 18px;
+>>>>>>> origin
+=======
         font-size: 25px;
 
     }
     .sub-header {
         font-size: 18px;
+>>>>>>> origin
     }
     main {
         grid-template-columns: 1fr;
