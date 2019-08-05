@@ -121,6 +121,7 @@ $(document).ready(function () {
         event.preventDefault();
         // First AJAX call to retrieve data from IGDB
         $("#current-article").empty();
+        $("#youtube-carousel").empty();
         let queryName = $(this).attr("query-name");
         console.log(queryName);
         let queryURL = `https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games/?search=${queryName}&fields=artworks.*,cover.*,id,name,url,screenshots.*,summary,storyline,total_rating,total_rating_count,websites.*`;
